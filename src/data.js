@@ -1,0 +1,16 @@
+export const books = [
+  { id: 1, title: "Buyuk Getsbi", author: "F. Skott Fitsjerald", price: 12.99, color: "#1d4f6b", genre: "Badiiy adabiyot", rating: 4.4, isbn: "9780743273565", desc: "1920-yillar Amerikasidagi boylik, muhabbat va xayollar haqidagi hikoya. Voqealar Nik Karrauey nigohi orqali aytiladi." },
+  { id: 2, title: "1984", author: "Jorj Oruell", price: 11.5, color: "#7a2e2e", genre: "Badiiy adabiyot", rating: 4.7, isbn: "9780451524935", desc: "Jamiyat butunlay nazorat ostida bo'lgan, haqiqatni davlat belgilaydigan qorong'u kelajak haqida roman." },
+  { id: 3, title: "Taqlidchi qushni o'ldirish", author: "Xarper Li", price: 13.25, color: "#2f5d3a", genre: "Badiiy adabiyot", rating: 4.8, isbn: "9780061120084", desc: "Amerika janubida o'sayotgan qiz adolat, jasorat va xurofot haqida saboq oladi." },
+  { id: 4, title: "G'urur va xurofot", author: "Jeyn Ostin", price: 9.99, color: "#8a3b12", genre: "Badiiy adabiyot", rating: 4.6, isbn: "9780141439518", desc: "Odob, oila va birinchi taassurotdan muhabbatgacha bo'lgan yo'l haqidagi hazilga boy klassik asar." },
+  { id: 5, title: "Kimyogar", author: "Paulo Koelo", price: 14.0, color: "#8a5a12", genre: "Badiiy adabiyot", rating: 4.3, isbn: "9780062315007", desc: "Cho'pon bola xazina izlab sayohatga chiqadi va o'z hayotining ma'nosini topadi." },
+  { id: 6, title: "Xobbit", author: "J. R. R. Tolkin", price: 15.5, color: "#2f5d3a", genre: "Badiiy adabiyot", rating: 4.8, isbn: "9780547928227", desc: "Bilbo Beggins tinch uyini tark etib, mitti odamlar bilan xavfli safarga otlanadi." },
+  { id: 7, title: "Garri Potter va Faylasuflar toshi", author: "J. K. Rouling", price: 16.75, color: "#4a2f5e", genre: "Bolalar", rating: 4.9, isbn: "9780747532699", desc: "Oddiy bola o'zining sehrgar ekanini bilib, Xogvartsdagi birinchi o'quv yilini boshlaydi." },
+  { id: 8, title: "Kichkina shahzoda", author: "Antuan de Sent-Ekzyuperi", price: 8.95, color: "#2d3a6b", genre: "Bolalar", rating: 4.7, isbn: "9780156012195", desc: "Uchuvchi boshqa sayyoradan kelgan yosh shahzoda bilan uchrashadi va hayotda nima muhimligini tushunadi." },
+  { id: 9, title: "Atom odatlar", author: "Jeyms Klir", price: 18.0, color: "#1f3d36", genre: "Shaxsiy rivojlanish", rating: 4.8, isbn: "9780735211292", desc: "Kichik kundalik o'zgarishlar orqali yaxshi odatlarni shakllantirish va yomonlaridan qutulish bo'yicha amaliy qo'llanma." },
+  { id: 10, title: "Boy ota, kambag'al ota", author: "Robert T. Kiyosaki", price: 12.5, color: "#7a2e2e", genre: "Biznes", rating: 4.2, isbn: "9781612680194", desc: "Pul, aktivlar va moliyaviy mustaqillik haqidagi saboqlar." },
+  { id: 11, title: "Sapiens", author: "Yuval Noy Xarari", price: 19.99, color: "#8a5a12", genre: "Tarix", rating: 4.6, isbn: "9780062316097", desc: "Insoniyatning ilk odamlardan to hozirgi zamongacha bo'lgan qisqacha tarixi." },
+  { id: 12, title: "Vaqtning qisqacha tarixi", author: "Stiven Xoking", price: 15.0, color: "#2d3a6b", genre: "Fan", rating: 4.5, isbn: "9780553380163", desc: "Qora tuynuklar, Katta portlash va vaqtning mohiyati haqida tushunarli bayon." },
+];
+export const genres = ["Badiiy adabiyot", "Biznes", "Bolalar", "Fan", "Tarix", "Shaxsiy rivojlanish"];
+export const money = (n) => "$" + n.toFixed(2);
