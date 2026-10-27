@@ -8,10 +8,14 @@ export default function Login() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
 
-  const submit = (e) => {
+  const submit = async (e) => {
     e.preventDefault();
-    const err = login(email, password);
+    setBusy(true);
+    setError("");
+    const err = await login(email, password);
+    setBusy(false);
     if (err) return setError(err);
     navigate("/");
   };
@@ -26,7 +30,9 @@ export default function Login() {
         <label htmlFor="p">Parol</label>
         <input id="p" type="password" value={password} onChange={(e) => setPassword(e.target.value)} />
         {error && <p className="error" role="alert">{error}</p>}
-        <button className="btn full" type="submit">Kirish</button>
+        <button className="btn full" type="submit" disabled={busy}>
+          {busy ? "Kutib turing..." : "Kirish"}
+        </button>
         <p className="muted center-text">Hisobingiz yo'qmi? <Link to="/register">Ro'yxatdan o'ting</Link></p>
       </form>
     </div>

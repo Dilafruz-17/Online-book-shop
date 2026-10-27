@@ -1,8 +1,9 @@
 import { useSearchParams } from "react-router-dom";
-import { books, genres } from "../data.js";
+import { useStore } from "../store.jsx";
 import BookCard from "../components/BookCard.jsx";
 
 export default function Catalog() {
+  const { books, genres, loading, loadError } = useStore();
   const [params, setParams] = useSearchParams();
   const q = (params.get("q") || "").toLowerCase();
   const genre = params.get("genre") || "";
@@ -40,11 +41,17 @@ export default function Catalog() {
           </select>
         </aside>
         <div>
-          <p className="muted">{list.length} ta kitob topildi</p>
-          {list.length ? (
-            <div className="grid">{list.map((b) => <BookCard key={b.id} book={b} />)}</div>
-          ) : (
-            <p>Qidiruv bo'yicha kitob topilmadi.</p>
+          {loading && <p>Yuklanmoqda...</p>}
+          {loadError && <p className="error" role="alert">{loadError}</p>}
+          {!loading && !loadError && (
+            <>
+              <p className="muted">{list.length} ta kitob topildi</p>
+              {list.length ? (
+                <div className="grid">{list.map((b) => <BookCard key={b.id} book={b} />)}</div>
+              ) : (
+                <p>Qidiruv bo'yicha kitob topilmadi.</p>
+              )}
+            </>
           )}
         </div>
       </div>

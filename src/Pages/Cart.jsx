@@ -1,10 +1,13 @@
 import { Link } from "react-router-dom";
-import { books, money } from "../data.js";
+import { money } from "../data.js";
 import { useStore } from "../store.jsx";
 import Cover from "../components/Cover.jsx";
 
 export default function Cart() {
-  const { cart, setQty, clearCart, user } = useStore();
+  const { books, loading, cart, setQty, clearCart, user } = useStore();
+
+  if (loading) return <div className="w sec"><p>Yuklanmoqda...</p></div>;
+
   const rows = cart.map((i) => ({ ...i, book: books.find((b) => b.id === i.id) })).filter((r) => r.book);
   const subtotal = rows.reduce((s, r) => s + r.book.price * r.qty, 0);
   const delivery = subtotal === 0 || subtotal >= 30 ? 0 : 4;
@@ -46,7 +49,7 @@ export default function Cart() {
           <p><span>Yetkazib berish</span><span>{delivery ? money(delivery) : "Bepul"}</span></p>
           <p className="total"><span>Jami</span><span>{money(subtotal + delivery)}</span></p>
           {user ? (
-            <button className="btn full" onClick={() => alert("Buyurtmani rasmiylashtirish sahifasi keyingi bosqichda qo'shiladi.")}>Buyurtmani rasmiylashtirish</button>
+            <Link to="/checkout" className="btn full">Buyurtmani rasmiylashtirish</Link>
           ) : (
             <Link to="/login" className="btn full">Rasmiylashtirish uchun kiring</Link>
           )}

@@ -1,5 +1,5 @@
 import { useParams } from "react-router-dom";
-import { books, money } from "../data.js";
+import { money } from "../data.js";
 import { useStore } from "../store.jsx";
 import BookCard from "../components/BookCard.jsx";
 import Cover from "../components/Cover.jsx";
@@ -7,7 +7,10 @@ import NotFound from "./NotFound.jsx";
 
 export default function BookDetails() {
   const { id } = useParams();
-  const { addToCart } = useStore();
+  const { books, loading, addToCart } = useStore();
+
+  if (loading) return <div className="w sec"><p>Yuklanmoqda...</p></div>;
+
   const book = books.find((b) => b.id === Number(id));
   if (!book) return <NotFound />;
   const related = books.filter((b) => b.genre === book.genre && b.id !== book.id).slice(0, 4);

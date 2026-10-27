@@ -48,6 +48,7 @@ export default function Layout() {
           </Link>
           {user ? (
             <>
+              <Link to="/orders">Buyurtmalarim</Link>
               <span className="muted">Salom, {user.name}</span>
               <button className="link" onClick={logout}>Chiqish</button>
             </>

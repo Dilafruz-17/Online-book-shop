@@ -1,9 +1,11 @@
 import { Link } from "react-router-dom";
-import { books, genres } from "../data.js";
+import { useStore } from "../store.jsx";
 import BookCard from "../components/BookCard.jsx";
 import Cover from "../components/Cover.jsx";
 
 export default function Home() {
+  const { books, genres, loading, loadError } = useStore();
+
   return (
     <>
       <section className="hero">
@@ -21,6 +23,8 @@ export default function Home() {
         </div>
       </section>
       <section className="w sec">
+        {loading && <p>Yuklanmoqda...</p>}
+        {loadError && <p className="error" role="alert">{loadError}</p>}
         <div className="chips">
           {genres.map((g) => (
             <Link key={g} className="btn outline" to={`/shop?genre=${encodeURIComponent(g)}`}>{g}</Link>

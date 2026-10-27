@@ -375,3 +375,17 @@ main {
   min-height: 0;
 }
 .footer { margin-top: 48px; }
+
+/* ===== Orders ===== */
+.orders { display: grid; gap: 20px; margin-top: 16px; }
+.order p { display: flex; justify-content: space-between; gap: 16px; }
+.order-head { display: flex; justify-content: space-between; align-items: center; margin-bottom: 8px; }
+.badge {
+  background: var(--primary-soft);
+  color: var(--primary);
+  font-size: 13px;
+  font-weight: 700;
+  padding: 4px 12px;
+  border-radius: 999px;
+}
+.btn:disabled { opacity: 0.6; cursor: wait; transform: none; box-shadow: none; }
